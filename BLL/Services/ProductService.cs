@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using DAL.Models;
 using DAL.Repos;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace BLL.Services
     {
         public static List<ProductDTO> Get()
         {
-            var data = ProductRepo.Get();
+            var data = DataAccessFact.ProductData().Get();
+           // var data = ProductRepo.Get();
             return Convert(data);
         }
        /*
@@ -27,23 +29,30 @@ namespace BLL.Services
        */
         public static ProductDTO Get(int id)
         {
-            return Convert(ProductRepo.Get(id));
+            return Convert(DataAccessFact.ProductData().Get(id));
         }
         public static bool Create(ProductDTO product)
         {
             var data = Convert(product);
-            return ProductRepo.Create(data);
+            var res = DataAccessFact.ProductData().Insert(data);
+
+            if (res != null) return true;
+            return false;
         }
         public static bool Update(ProductDTO product)
         {
             var data = Convert(product);
-            return ProductRepo.Update(data);
+            var res =  DataAccessFact.ProductData().Update(data);
+
+            if (res != null) return true;
+            return false;
         }
         public static bool Delete(int id)
         {
-            return ProductRepo.Delete(id);
+            return DataAccessFact.ProductData().Delete(id);
         }
 
+        
         static List<ProductDTO> Convert(List<Product> products)
         {
             var data = new List<ProductDTO>();
@@ -61,6 +70,8 @@ namespace BLL.Services
             return data;
 
         }
+
+        
         static Product Convert(ProductDTO pro)
         {
             return new Product()

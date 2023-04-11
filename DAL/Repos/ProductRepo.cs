@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.Interfaces;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    public class ProductRepo
+    internal class ProductRepo : Repo, IRepo<Product, int, Product>
     {
+
+        // ********************** 
+
+        /*
         static ShopContext shopContext;
         static ProductRepo() 
         {
@@ -47,6 +52,42 @@ namespace DAL.Repos
             var pro = Get(id);
             shopContext.Products.Remove(pro);
             return shopContext.SaveChanges() > 0;
+        }
+        */
+        public bool Delete(int id)
+        {
+            var pro = Get(id);
+            db.Products.Remove(pro);
+            return db.SaveChanges() > 0;
+        }
+
+        public List<Product> Get()
+        {
+            // throw new NotImplementedException();
+
+            //  return shopContext.Products.ToList();
+
+            return db.Products.ToList();
+        }
+
+        public Product Get(int id)
+        {
+            return db.Products.Find(id);
+        }
+
+        public Product Insert(Product obj)
+        {
+            db.Products.Add(obj);
+            if (db.SaveChanges() > 0) return obj;
+            return null;
+        }
+
+        public Product Update(Product obj)
+        {
+            var expro = db.Products.Find(obj.Id);
+            db.Entry(expro).CurrentValues.SetValues(obj);
+            if (db.SaveChanges() > 0) return obj;
+            return null;
         }
     }
 }

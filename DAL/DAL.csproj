@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessFact.cs" />
+    <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Migrations\202304011842133_basicTABLEadd.cs" />
     <Compile Include="Migrations\202304011842133_basicTABLEadd.designer.cs">
       <DependentUpon>202304011842133_basicTABLEadd.cs</DependentUpon>
@@ -64,6 +66,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\ProductRepo.cs" />
+    <Compile Include="Repos\Repo.cs" />
     <Compile Include="ShopContext.cs" />
   </ItemGroup>
   <ItemGroup>
