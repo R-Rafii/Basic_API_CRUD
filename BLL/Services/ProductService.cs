@@ -16,6 +16,7 @@ namespace BLL.Services
             var data = ProductRepo.Get();
             return Convert(data);
         }
+       /*
         public static List<ProductDTO> Get10()
         {
             var data = (from e in ProductRepo.Get()
@@ -23,6 +24,7 @@ namespace BLL.Services
                         select e).ToList();
             return Convert(data);
         }
+       */
         public static ProductDTO Get(int id)
         {
             return Convert(ProductRepo.Get(id));
