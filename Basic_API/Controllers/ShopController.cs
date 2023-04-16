@@ -104,5 +104,21 @@ namespace Basic_API.Controllers
 
             }
         }
+
+        ////
+        public HttpResponseMessage DeleteTest(int id)
+        {
+            try
+            {
+
+                return Request.CreateResponse(HttpStatusCode.OK, ProductService.Delete(id));
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
     }
 }
