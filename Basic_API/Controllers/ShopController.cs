@@ -10,6 +10,7 @@ using System.Configuration;
 
 namespace Basic_API.Controllers
 {
+    // hi there ... 
     public class ShopController : ApiController
     {
         [HttpGet]
@@ -91,6 +92,22 @@ namespace Basic_API.Controllers
         [HttpPost]
         [Route("api/products/delete/{id}")]
         public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+
+                return Request.CreateResponse(HttpStatusCode.OK, ProductService.Delete(id));
+            }
+            catch (Exception ex)
+            {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+
+            }
+        }
+
+        ////
+        public HttpResponseMessage DeleteTest(int id)
         {
             try
             {
