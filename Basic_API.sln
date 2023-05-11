@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CC17AE14-AE8C-43BC-A608-6525FA9C4A44}"
 	ProjectSection(SolutionItems) = preProject
 		Frontend\abcd.html = Frontend\abcd.html
+		new.html = new.html
 		Frontend\test.html = Frontend\test.html
 	EndProjectSection
 EndProject
