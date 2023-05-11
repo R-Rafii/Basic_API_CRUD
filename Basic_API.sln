@@ -9,9 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{CED9ACC7-EA48-41C3-A730-E2C157D1701F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{E352BA6B-7A9F-44CB-8452-3565D545D930}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CC17AE14-AE8C-43BC-A608-6525FA9C4A44}"
 	ProjectSection(SolutionItems) = preProject
-		test.html = test.html
+		Frontend\abcd.html = Frontend\abcd.html
+		Frontend\test.html = Frontend\test.html
 	EndProjectSection
 EndProject
 Global
